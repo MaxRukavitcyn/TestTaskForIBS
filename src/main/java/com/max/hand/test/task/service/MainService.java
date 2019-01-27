@@ -10,6 +10,10 @@ public class MainService {
 
     private List<RequisitionPojo> requisitionPojoList = new ArrayList<>();
 
+    public MainService() {
+        initRequisitionList();
+    }
+
     public void initRequisitionList() {
         RequisitionPojo requisitionPojo1 = new RequisitionPojo(1, "name1", "addressFrom1@mail.ru", "addressTo1@mail.ru", true);
         RequisitionPojo requisitionPojo2 = new RequisitionPojo(2, "name2", "addressFrom2@mail.ru", "addressTo2@mail.ru", true);

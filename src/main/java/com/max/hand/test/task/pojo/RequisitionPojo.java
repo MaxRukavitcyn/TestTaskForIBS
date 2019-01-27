@@ -1,8 +1,5 @@
 package com.max.hand.test.task.pojo;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class RequisitionPojo {
     private long id;
     private String name;

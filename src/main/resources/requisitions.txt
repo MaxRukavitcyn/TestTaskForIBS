@@ -1,0 +1,37 @@
+[
+{
+"id": 1,
+"name": "name1",
+"emailFrom": "addressFrom1@mail.ru",
+"emailTo": "addressTo1@mail.ru",
+"status": true
+},
+{
+"id": 2,
+"name": "name2",
+"emailFrom": "addressFrom2@mail.ru",
+"emailTo": "addressTo2@mail.ru",
+"status": true
+},
+{
+"id": 3,
+"name": "name3",
+"emailFrom": "addressFrom3@mail.ru",
+"emailTo": "addressTo3@mail.ru",
+"status": true
+},
+{
+"id": 4,
+"name": "name4",
+"emailFrom": "addressFrom4@mail.ru",
+"emailTo": "addressTo4@mail.ru",
+"status": false
+},
+{
+"id": 5,
+"name": "name5",
+"emailFrom": "addressFrom5@mail.ru",
+"emailTo": "addressTo5@mail.ru",
+"status": false
+}
+]
