@@ -1,5 +1,6 @@
 package com.max.hand.test.task.pojo;
 
+
 public class RequisitionPojo {
     private long id;
     private String name;

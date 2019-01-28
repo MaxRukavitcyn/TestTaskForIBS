@@ -5,6 +5,8 @@ import com.max.hand.test.task.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/test")
@@ -14,18 +16,23 @@ public class MainController {
     private MainService service;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<RequisitionPojo> getRequisitions() {
+    public Map<Long, RequisitionPojo> getRequisitions() {
 
         return service.getRequisitions();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public List<RequisitionPojo> deleteById(@PathVariable int id) {
+    public Map<Long, RequisitionPojo> deleteById(@PathVariable long id) {
        return service.deleteById(id);
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void addRequisition(@RequestBody RequisitionPojo requisitionPojo) {
         service.addRequisitionPojo(requisitionPojo);
+    }
+
+    @RequestMapping(value = "/patch", method = RequestMethod.PUT)
+    public void patchRequisitionList(@RequestBody RequisitionPojo requisitionPojo) {
+        service.patchRequisitionList(requisitionPojo);
     }
 }
