@@ -37,6 +37,8 @@ public class MainService {
 //            }
 //        });
 
+
+
         return requisitionPojoList;
     }
 
@@ -54,7 +56,6 @@ public class MainService {
             requisitionPojoList.put(requisitionPojo.getId(), requisitionPojo);
         } else {
             System.out.println("Такой объект уже есть");
-
         }
 
     }
@@ -62,8 +63,7 @@ public class MainService {
     public void patchRequisitionList(RequisitionPojo requisitionPojo) {
         System.out.println("Изменен обект: " + requisitionPojo);
 
-        if (!requisitionPojoList.containsKey(requisitionPojo.getId())) {
-            requisitionPojoList.remove(requisitionPojo.getId());
+        if (requisitionPojoList.containsKey(requisitionPojo.getId())) {
             requisitionPojoList.put(requisitionPojo.getId(), requisitionPojo);
         }
 
