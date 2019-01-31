@@ -90,14 +90,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_main_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/main-service.service */ "./src/app/services/main-service.service.ts");
-
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(service) {
-        this.service = service;
-        // this.service.getRequisitionList();
+    function AppComponent() {
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -105,7 +101,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_main_service_service__WEBPACK_IMPORTED_MODULE_2__["MainServiceService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -130,10 +126,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _components_my_component_my_component_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/my-component/my-component.component */ "./src/app/components/my-component/my-component.component.ts");
-/* harmony import */ var _services_main_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/main-service.service */ "./src/app/services/main-service.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 
 
 
@@ -154,10 +148,10 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"]
             ],
-            providers: [_services_main_service_service__WEBPACK_IMPORTED_MODULE_6__["MainServiceService"]],
+            providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
@@ -186,7 +180,7 @@ module.exports = "table {\r\n  width: 100%; /* Ширина таблицы */\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div>\n  <button (click)=\"showAdd()\">+</button> <button (click)=\"showEdit()\">edit</button>\n\n  <table>\n    <thead>\n    <tr>\n      <th>id</th>\n      <th>name</th>\n      <th>emailForm</th>\n      <th>emailTo</th>\n      <th>status</th>\n      <th></th>\n    </tr>\n    </thead>\n\n    <tbody *ngFor=\"let key of keys\">\n    <tr>\n      <td>{{requisitions[key].id}}</td>\n      <td>{{requisitions[key].name}}</td>\n      <td>{{requisitions[key].emailTo}}</td>\n      <td>{{requisitions[key].emailFrom}}</td>\n      <td>{{requisitions[key].status}}</td>\n      <td><button (click)=\"deleteReq(requisitions[key].id)\">X</button></td>\n    </tr>\n    </tbody>\n  </table>\n</div>\n\n<form *ngIf=\"!isEdit && isAdd\" (submit)=\"addRequisition()\"\n      name=\"addRequisition\">\n  <div><h3>Добавить</h3>\n    <input placeholder=\"id\" type=\"number\" [(ngModel)]=\"idReq\" name=\"idReq\">\n    <input placeholder=\"name\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    <input placeholder=\"emailFrom\" type=\"text\" [(ngModel)]=\"emailFrom\" name=\"emailFrom\">\n    <input placeholder=\"emailTo\" type=\"text\" [(ngModel)]=\"emailTo\" name=\"emailTo\">\n    <label class=\"contact_form\">статус: </label> <input type=\"radio\" [(ngModel)]=\"status\" name=\"status\">\n    <br><br>\n    <button class=\"button-add\" type=\"submit\">добавить</button>\n  </div>\n</form>\n<form *ngIf=\"isEdit && !isAdd\" (submit)=\"patchRequisition()\"\n      name=\"addRequisition\">\n  <div><h3>Редактировать</h3>\n    <input placeholder=\"id\" type=\"number\" [(ngModel)]=\"idReq\" name=\"idReq\">\n    <input placeholder=\"name\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    <input placeholder=\"emailFrom\" type=\"text\" [(ngModel)]=\"emailFrom\" name=\"emailFrom\">\n    <input placeholder=\"emailTo\" type=\"text\" [(ngModel)]=\"emailTo\" name=\"emailTo\">\n    <label class=\"contact_form\">статус: </label> <input type=\"radio\" [(ngModel)]=\"status\" name=\"status\">\n    <br><br>\n    <button class=\"button-add\" type=\"submit\">редактировать</button>\n  </div>\n</form>\n<br>\n\n\n\n\n"
+module.exports = "\n<div>\n  <button (click)=\"showAdd()\">+</button> <button (click)=\"showEdit()\">edit</button>\n\n  <table>\n    <thead>\n    <tr>\n      <th>id</th>\n      <th>name</th>\n      <th>emailForm</th>\n      <th>emailTo</th>\n      <th>status</th>\n      <th></th>\n    </tr>\n    </thead>\n\n    <tbody *ngFor=\"let key of keys\">\n    <tr>\n      <td>{{requisitions[key].id}}</td>\n      <td>{{requisitions[key].name}}</td>\n      <td>{{requisitions[key].emailFrom}}</td>\n      <td>{{requisitions[key].emailTo}}</td>\n      <td>{{requisitions[key].status}}</td>\n      <td><button (click)=\"deleteReq(requisitions[key].id)\">X</button></td>\n    </tr>\n    </tbody>\n  </table>\n</div>\n\n<form *ngIf=\"!isEdit && isAdd\" (submit)=\"addRequisition()\"\n      name=\"addRequisition\">\n  <div><h3>Добавить</h3>\n    <input placeholder=\"id\" type=\"number\" [(ngModel)]=\"idReq\" name=\"idReq\">\n    <input placeholder=\"name\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    <input placeholder=\"emailFrom\" type=\"text\" [(ngModel)]=\"emailFrom\" name=\"emailFrom\">\n    <input placeholder=\"emailTo\" type=\"text\" [(ngModel)]=\"emailTo\" name=\"emailTo\">\n    <label class=\"contact_form\">статус: </label> <input type=\"checkbox\" [(ngModel)]=\"status\" name=\"status\">\n    <br><br>\n    <button class=\"button-add\" type=\"submit\">добавить</button>\n  </div>\n</form>\n<form *ngIf=\"isEdit && !isAdd\" (submit)=\"patchRequisition()\"\n      name=\"addRequisition\">\n  <div><h3>Редактировать</h3>\n    <input placeholder=\"id\" type=\"number\" [(ngModel)]=\"idReq\" name=\"idReq\">\n    <input placeholder=\"name\" type=\"text\" [(ngModel)]=\"name\" name=\"name\">\n    <input placeholder=\"emailFrom\" type=\"text\" [(ngModel)]=\"emailFrom\" name=\"emailFrom\">\n    <input placeholder=\"emailTo\" type=\"text\" [(ngModel)]=\"emailTo\" name=\"emailTo\">\n    <label class=\"contact_form\">статус: </label> <input type=\"checkbox\" [(ngModel)]=\"status\" name=\"status\">\n    <br><br>\n    <button class=\"button-add\" type=\"submit\">редактировать</button>\n  </div>\n</form>\n<br>\n\n\n\n\n"
 
 /***/ }),
 
@@ -209,6 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 var MyComponentComponent = /** @class */ (function () {
     function MyComponentComponent(http) {
         this.http = http;
+        this.status = false;
         this.isEdit = false;
         this.isAdd = false;
     }
@@ -229,12 +224,11 @@ var MyComponentComponent = /** @class */ (function () {
             'name': this.name,
             'emailFrom': this.emailFrom,
             'emailTo': this.emailTo,
-            'status': true
+            'status': this.status
         };
         console.log(this.obj);
         this.http.post('http://localhost:8080/test/add', obj).subscribe(function (res) {
             console.log(res);
-            // alert('Объект добавлен!');
             _this.getRequisition();
         });
     };
@@ -253,12 +247,11 @@ var MyComponentComponent = /** @class */ (function () {
             'name': this.name,
             'emailFrom': this.emailFrom,
             'emailTo': this.emailTo,
-            'status': true
+            'status': this.status
         };
         console.log(this.obj);
         this.http.put('http://localhost:8080/test/patch', obj).subscribe(function (res) {
             console.log(res);
-            // alert('Объект изменен!');
             _this.getRequisition();
         });
     };
@@ -278,36 +271,6 @@ var MyComponentComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], MyComponentComponent);
     return MyComponentComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/main-service.service.ts":
-/*!**************************************************!*\
-  !*** ./src/app/services/main-service.service.ts ***!
-  \**************************************************/
-/*! exports provided: MainServiceService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainServiceService", function() { return MainServiceService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-
-var MainServiceService = /** @class */ (function () {
-    function MainServiceService() {
-    }
-    MainServiceService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], MainServiceService);
-    return MainServiceService;
 }());
 
 
